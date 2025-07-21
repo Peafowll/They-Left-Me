@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://b6uuqy6ksicrg"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_2tjkf"]
+
+[resource]
+script = ExtResource("1_2tjkf")
+name = "bag of chips"
+food_fill = 10.0
+thirst_fill = 0.0
+sanity_fill = 3.0
+energy_fill = 0.0
+description = "It's a salty bag of chips. Slightly reduces your hunger."
+rarity = 8.0
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

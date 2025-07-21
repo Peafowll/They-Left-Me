@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://b5oct1jffmuvk"]
+
+[ext_resource type="Script" uid="uid://khlnrk4jhk41" path="res://Objects/location.gd" id="1_aovxi"]
+[ext_resource type="Resource" uid="uid://dy7xfp02fwdi2" path="res://Resources/LootPools/city_pool.tres" id="1_mlitp"]
+
+[resource]
+script = ExtResource("1_aovxi")
+name = "city"
+background_image = "Cityscape"
+background_noise = "citynoise"
+size = 25
+loot_table = ExtResource("1_mlitp")
+metadata/_custom_type_script = "uid://khlnrk4jhk41"

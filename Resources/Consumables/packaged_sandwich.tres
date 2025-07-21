@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://s661os074p2"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_vdqne"]
+
+[resource]
+script = ExtResource("1_vdqne")
+name = "packaged sandwich"
+food_fill = 20.0
+thirst_fill = 0.0
+sanity_fill = 0.0
+energy_fill = 0.0
+description = "It's an old-school premade sandwich. Moderately decreases hunger."
+rarity = 6.0
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"
