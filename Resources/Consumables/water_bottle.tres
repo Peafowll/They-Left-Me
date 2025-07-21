@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://dhsr7w22p5ub"]
 
-[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_jwrny"]
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_mp348"]
 
 [resource]
-script = ExtResource("1_jwrny")
+script = ExtResource("1_mp348")
 name = "water bottle"
 food_fill = 0.0
 thirst_fill = 25.0
 sanity_fill = 0.0
 energy_fill = 0.0
-description = "A full portable water bottle. Substantially refreshing."
+description = "A full portable water bottle.
+[color=#FFB600] Noticeably[/color] [color=#415cf3] refreshing[/color]."
+type = "drink"
 rarity = 8.0
 metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

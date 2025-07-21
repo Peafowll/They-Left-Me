@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://hw8m7s4fgwkw"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_b6cyb"]
+
+[resource]
+script = ExtResource("1_b6cyb")
+name = "can of soda"
+food_fill = 3.0
+thirst_fill = 10.0
+sanity_fill = 5.0
+energy_fill = 0.0
+description = "A can of brand soda
+[color=#FF7F2A]Slightly[/color] quenches [color=#415cf3]thirst[color].
+[color=#FF2D2D]Faintly[/color] increases [color=purple] sanity[/color]. "
+type = "drink"
+rarity = 8.0
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

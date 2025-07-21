@@ -9,6 +9,8 @@ food_fill = 10.0
 thirst_fill = 0.0
 sanity_fill = 3.0
 energy_fill = 0.0
-description = "It's a salty bag of chips. Slightly reduces your hunger."
+description = "It's a salty bag of chips.[color=#FF7F2A]	 Slightly [/color] reduces [color=#c96d0e]hunger[/color]. 
+[color=#FF2D2D] Faintly[/color] improves [color=purple]sanity[/color]."
+type = "food"
 rarity = 8.0
 metadata/_custom_type_script = "uid://cguy6cyd1k3n2"
