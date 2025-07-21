@@ -5,4 +5,5 @@ extends Resource
 @export var background_noise : String #replace this
 @export var size : int
 @export_range(1,100) var no_loot_chance : int
+@export_range(1,100) var shelter_chance : int
 @export var loot_table : LootTable

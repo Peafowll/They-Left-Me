@@ -4,6 +4,7 @@ extends Node2D
 @export var day : int = 0
 @export var hour : float = 0
 const SEARCH_WEIGHT_BIAS = 3
+const SEARCH_SHELTER_BIAS = 5
 var Locations : Array[Location] = []
 var current_location
 func _ready() -> void:
@@ -11,7 +12,7 @@ func _ready() -> void:
 	#print(Locations[0].loot_table.pool[0].name)
 	current_location = Locations[0]
 	var found = _search("food")
-	print(found.name)
+	print(found)
 	
 	#below is testing for chances based on weight
 	#var results : Dictionary = {
@@ -33,15 +34,36 @@ func _ready() -> void:
 
 
 
-func _search(search_type: String)->Consumable:
+func _search(search_type: String):
 	#checking if anything is found
+	if _roll_for_nothing():
+		return null
+
+	if _roll_for_shelter(search_type):
+		return "shelter"
+	
+	return _roll_for_items(search_type)
+
+
+
+func _roll_for_nothing():
 	var chance_for_nothing = current_location.no_loot_chance
 	var random = randi() % 100 + 1
 	if(random<=chance_for_nothing):
-		#print("You found nothing.")
-		return null
-		
-	var found_item : Consumable
+		return true
+
+func _roll_for_shelter(search_type):
+	var chance_for_shelter= current_location.shelter_chance
+	if (search_type=="shelter"):
+		chance_for_shelter *= SEARCH_SHELTER_BIAS
+	var random = randi() % 100 +1
+	if(random<=chance_for_shelter):
+		#print("You found shelter.")
+		return true
+	return false
+
+func _roll_for_items(search_type):
+	var found_item : Consumable = null
 	var total_weight := 0
 	var current_loot_pool = current_location.loot_table.pool; #array of items
 	#at current location
@@ -49,14 +71,14 @@ func _search(search_type: String)->Consumable:
 	#getting total weight of all items
 	for item in current_loot_pool:
 		var weight = item.rarity
-		if item.type == search_type: # doubling the added weight of items u want
+		if item.type == search_type: #adding weight of items searched for
 			weight*= SEARCH_WEIGHT_BIAS
 		total_weight+=weight
 	#print("Greutate : ")
 	#print(total_weight)
 	
 	#searching for items based on weight
-	random=randf()*total_weight
+	var random=randf()*total_weight
 	var current_weight = 0
 	for item in current_loot_pool:
 		var weight = 0
