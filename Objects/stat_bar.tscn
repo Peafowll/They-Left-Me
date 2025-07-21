@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cttyymtww8mqn"]
+
+[ext_resource type="Texture2D" uid="uid://c1ve5uuy067h2" path="res://Sprites/statsbar_percentage_separator.png" id="1_tubch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5jlk"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tubch"]
+bg_color = Color(0.862745, 0.498039, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_tubch"]
+
+[node name="StatBar" type="ProgressBar"]
+offset_right = 422.0
+offset_bottom = 44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k5jlk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tubch")
+value = 50.0
+show_percentage = false
+
+[node name="PercentageSeparator" type="Sprite2D" parent="."]
+position = Vector2(211, 22)
+texture = ExtResource("1_tubch")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_tubch")

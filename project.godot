@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="They Left Me"
+run/main_scene="uid://7jrdqeclttua"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,3 +19,8 @@ config/icon="res://icon.svg"
 
 Player="*res://Objects/player.tscn"
 World="*res://Objects/world.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
