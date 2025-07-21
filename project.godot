@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="They Left Me"
-run/main_scene="uid://7jrdqeclttua"
+run/main_scene="uid://bq728sl3rjanw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
