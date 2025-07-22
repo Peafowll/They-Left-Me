@@ -6,11 +6,6 @@ extends Control
 
 @onready var canvas_layer = $TravelingTransition
 
-#@onready var food_search_button : Button = $SearchFoodButton
-#@onready var water_search_button : Button = $SearchWaterButton
-#@onready var shelter_search_button : Button = $SearchShelterButton
-
-
 func _process(_delta: float) -> void:
 	energy_bar.value = Player.energy
 	hunger_bar.value = Player.hunger
