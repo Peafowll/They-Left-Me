@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://b75qjagssnbsm"]
+
+[ext_resource type="Script" uid="uid://khlnrk4jhk41" path="res://Objects/location.gd" id="1_63ktp"]
+[ext_resource type="Resource" uid="uid://cvt5rryss5w1t" path="res://Resources/LootPools/farm_pool.tres" id="1_g8kas"]
+
+[resource]
+script = ExtResource("1_63ktp")
+name = "farm"
+background_image = "farmscape"
+background_noise = "farmnoise"
+size = 10
+no_loot_chance = 0
+shelter_chance = 0
+loot_table = ExtResource("1_g8kas")
+metadata/_custom_type_script = "uid://khlnrk4jhk41"

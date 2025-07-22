@@ -30,7 +30,6 @@ func _on_travel_button_pressed() -> void:
 	print(World.day)
 	print(World.hour)
 
-
 func _on_quick_travel_button_pressed() -> void:
 	canvas_layer.visible = true
 	# Play footstep sound
