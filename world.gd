@@ -9,7 +9,7 @@ const SEARCH_SHELTER_BIAS = 5
 
 @export var Locations : Array[Location] = []
 @export var current_location : Location
-@export var location_index : int = 1
+@export var location_index : int = 0
 @export var current_distance : int
 
 func _ready() -> void:
