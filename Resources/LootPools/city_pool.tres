@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootTable" load_steps=6 format=3 uid="uid://dy7xfp02fwdi2"]
 
-[ext_resource type="Script" uid="uid://bd86tr0dm08je" path="res://Objects/loot_table.gd" id="1_4pgkn"]
-[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_frt3j"]
+[ext_resource type="Script" path="res://Objects/loot_table.gd" id="1_4pgkn"]
+[ext_resource type="Script" path="res://Objects/consumable.gd" id="1_frt3j"]
 [ext_resource type="Resource" uid="uid://b6uuqy6ksicrg" path="res://Resources/Consumables/bag_of_chips.tres" id="2_k3his"]
 [ext_resource type="Resource" uid="uid://s661os074p2" path="res://Resources/Consumables/packaged_sandwich.tres" id="3_kcmyd"]
 [ext_resource type="Resource" uid="uid://dhsr7w22p5ub" path="res://Resources/Consumables/water bottle.tres" id="4_i4g17"]
@@ -10,4 +10,3 @@
 script = ExtResource("1_4pgkn")
 name = "city"
 pool = Array[ExtResource("1_frt3j")]([ExtResource("2_k3his"), ExtResource("3_kcmyd"), ExtResource("4_i4g17")])
-metadata/_custom_type_script = "uid://bd86tr0dm08je"

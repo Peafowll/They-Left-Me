@@ -5,5 +5,5 @@ extends Node2D
 @export_range(0,100) var energy : float = 100
 @export_range(0,100) var sanity : float = 100
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	hunger-=0.01
