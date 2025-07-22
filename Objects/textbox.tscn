@@ -17,7 +17,6 @@ rich_text = NodePath("RichTextLabel")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.583557, 0.306109, 0.0403488, 1)
 texture = ExtResource("1_7tnc2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

@@ -28,7 +28,7 @@ func _ready() -> void:
 	#print(Locations[0].loot_table.pool[0].name)
 	current_location = Locations[location_index]
 	print("Current location : " + current_location.name)
-	print("Necessary background : " + current_location.background_image)
+
 	
 	#below is testing for chances based on weight
 	#var results : Dictionary = {
