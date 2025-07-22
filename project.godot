@@ -18,3 +18,12 @@ config/icon="res://icon.svg"
 
 Player="*res://Objects/player.tscn"
 World="*res://Objects/world.tscn"
+<<<<<<< Updated upstream
+=======
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+>>>>>>> Stashed changes
