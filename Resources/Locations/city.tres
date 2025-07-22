@@ -6,10 +6,9 @@
 [resource]
 script = ExtResource("1_aovxi")
 name = "city"
-background_image = "Cityscape"
+background_image = "cityscape"
 background_noise = "citynoise"
 size = 25
 no_loot_chance = 25
 shelter_chance = 5
 loot_table = ExtResource("1_mlitp")
-metadata/_custom_type_script = "uid://khlnrk4jhk41"

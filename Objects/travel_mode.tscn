@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq728sl3rjanw"]
+[gd_scene load_steps=18 format=3 uid="uid://bq728sl3rjanw"]
 
 [ext_resource type="Script" uid="uid://dtmbkqy8dg23d" path="res://Objects/ui_update.gd" id="1_05maj"]
 [ext_resource type="Theme" uid="uid://cirrv05komjp3" path="res://Objects/Themes/ButtonText.tres" id="1_gyy25"]
 [ext_resource type="PackedScene" uid="uid://3moepcq27gcb" path="res://Objects/stat_bar.tscn" id="1_hyowb"]
+[ext_resource type="PackedScene" uid="uid://1faecfw8koq3" path="res://Objects/background.tscn" id="1_s3etm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3etm"]
 bg_color = Color(0.905433, 0.92, 0.046, 1)
@@ -46,6 +47,16 @@ width = 75
 height = 75
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_s3etm"]
+colors = PackedColorArray(0.92549, 0, 0, 1, 1, 0.160784, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mib4"]
+gradient = SubResource("Gradient_s3etm")
+width = 75
+height = 75
+fill_from = Vector2(0.418803, 0.299145)
+fill_to = Vector2(0.764957, 0.611111)
+
 [sub_resource type="Gradient" id="Gradient_05maj"]
 offsets = PackedFloat32Array(0.21393, 0.61194, 1)
 colors = PackedColorArray(0.188235, 1, 0.466667, 1, 0.921569, 0, 0, 1, 0.188235, 1, 0.466667, 1)
@@ -66,6 +77,10 @@ width = 75
 height = 75
 
 [node name="TravelMode" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_s3etm")]
+position = Vector2(-194, -117)
+scale = Vector2(1.2, 1.2)
 
 [node name="UIUpdate" type="Control" parent="."]
 layout_mode = 3
@@ -99,6 +114,7 @@ offset_bottom = 838.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_hyowb")
 
 [node name="SearchShelterButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 0
 offset_left = 1520.0
 offset_top = 15.0
 offset_right = 1595.0
@@ -121,6 +137,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="SearchWaterButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 0
 offset_left = 1727.0
 offset_top = 228.0
 offset_right = 1802.0
@@ -144,6 +161,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="SearchFoodButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 0
 offset_left = 1729.0
 offset_top = 28.0
 offset_right = 1804.0
@@ -166,6 +184,77 @@ text = "Food
 "
 scroll_active = false
 autowrap_mode = 0
+
+[node name="TravelButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 0
+offset_left = 1714.0
+offset_top = 892.0
+offset_right = 1789.0
+offset_bottom = 967.0
+scale = Vector2(2.1954, 1.96208)
+texture_normal = SubResource("GradientTexture2D_05maj")
+texture_hover = SubResource("GradientTexture2D_hyowb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/TravelButton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 17.0
+offset_right = 41.0
+offset_bottom = 40.0
+scale = Vector2(1.82284, 1.51439)
+mouse_filter = 2
+theme = ExtResource("1_gyy25")
+text = "Travel"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TravelingTransition" type="CanvasLayer" parent="UIUpdate"]
+
+[node name="TravelRect" type="ColorRect" parent="UIUpdate/TravelingTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TravelText" type="RichTextLabel" parent="UIUpdate/TravelingTransition"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -33.0
+offset_right = 145.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Traveling..."
+scroll_active = false
+
+[node name="QuickTravelButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 44.05
+anchor_top = 19.6
+anchor_right = 45.95
+anchor_bottom = 21.475
+offset_right = -0.00012207
+texture_normal = SubResource("GradientTexture2D_2mib4")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/QuickTravelButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 22.0
+offset_right = 79.0
+offset_bottom = 49.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "QTravel"
+scroll_active = false
 
 [node name="TravelButton" type="TextureButton" parent="."]
 offset_left = 1714.0
@@ -197,8 +286,7 @@ scale = Vector2(1.84, 1.92)
 texture_normal = SubResource("GradientTexture2D_s3etm")
 texture_hover = SubResource("GradientTexture2D_tbuwt")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="InventoryButton"]
-layout_mode = 0
+[node name="UIUpdate_InventoryButton#RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -0.543478
 offset_top = 24.4792
 offset_right = 75.4565
@@ -207,31 +295,5 @@ mouse_filter = 2
 text = "Inventory"
 scroll_active = false
 
-[node name="TravelingTransition" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="TravelingTransition"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TravelingTransition"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -33.0
-offset_right = 145.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 50
-text = "Travelling..."
-scroll_active = false
-
-[connection signal="pressed" from="TravelButton" to="UIUpdate" method="_on_travel_button_pressed"]
+[connection signal="pressed" from="UIUpdate/TravelButton" to="UIUpdate" method="_on_travel_button_pressed"]
+[connection signal="pressed" from="UIUpdate/QuickTravelButton" to="UIUpdate" method="_on_quick_travel_button_pressed"]
