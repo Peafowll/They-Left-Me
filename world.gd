@@ -107,6 +107,12 @@ func _roll_for_items(search_type):
 	text_to_display=_resource_amount_left_display(text_to_display)
 	TextBox.textbox.display_text(text_to_display)
 	print(current_location.no_loot_chance*nothing_found_modifier)
+	
+	if Player.inventory.has(found_item.name):
+		Player.inventory[found_item.name]+=1
+	else:
+		Player.inventory[found_item.name]=1
+	print(Player.inventory)
 	return found_item
 	
 func _pass_time(time : float):
