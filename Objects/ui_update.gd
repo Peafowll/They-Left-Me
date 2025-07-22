@@ -4,7 +4,7 @@ extends Control
 @onready var thirst_bar: ProgressBar = $ThirstBar
 @onready var hunger_bar: ProgressBar = $HungerBar
 
-@onready var canvas_layer = $"../CanvasLayer"
+@onready var canvas_layer = $TravelingTransition
 
 func _process(_delta: float) -> void:
 	energy_bar.value = Player.energy
@@ -17,5 +17,32 @@ func _ready() -> void:
 func _on_travel_button_pressed() -> void:
 	canvas_layer.visible = true
 	# Play footstep sound
-	await get_tree().create_timer(2).timeout
+	World.current_distance+=10
+	if World.current_distance > World.current_location.size:
+		World.current_distance = World.current_distance - World.current_location.size
+		World.location_index+=1
+	World.current_location = World.Locations[World.location_index]
+	World._pass_time(12)
+	await get_tree().create_timer(1.5).timeout
 	canvas_layer.visible = false
+	print(World.current_location.name)
+	print(World.current_distance)
+	print(World.day)
+	print(World.hour)
+
+
+func _on_quick_travel_button_pressed() -> void:
+	canvas_layer.visible = true
+	# Play footstep sound
+	World.current_distance+=10
+	if World.current_distance > World.current_location.size:
+		World.current_distance = World.current_distance - World.current_location.size
+		World.location_index+=1
+	World.current_location = World.Locations[World.location_index]
+	World._pass_time(6)
+	await get_tree().create_timer(1.5).timeout
+	canvas_layer.visible = false
+	print(World.current_location.name)
+	print(World.current_distance)
+	print(World.day)
+	print(World.hour)

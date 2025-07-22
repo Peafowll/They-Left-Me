@@ -3,14 +3,20 @@ extends Node2D
 
 @export var day : int = 0
 @export var hour : float = 0
+
 const SEARCH_WEIGHT_BIAS = 3
 const SEARCH_SHELTER_BIAS = 5
-var Locations : Array[Location] = []
-var current_location
+
+@export var Locations : Array[Location] = []
+@export var current_location : Location
+@export var location_index : int = 0
+@export var current_distance : int
+
 func _ready() -> void:
 	Locations.append(load( "res://Resources/Locations/city.tres"))
+	Locations.append(load("res://Resources/Locations/forest.tres" ))
 	#print(Locations[0].loot_table.pool[0].name)
-	current_location = Locations[0]
+	current_location = Locations[location_index]
 	print("Current location : " + current_location.name)
 	print("Necessary background : " + current_location.background_image)
 	var found = _search("food")
@@ -96,3 +102,10 @@ func _roll_for_items(search_type):
 	print("Found " + found_item.name+ ".")
 	print(found_item.description)
 	return found_item
+	
+func _pass_time(time : float):
+	hour+=time
+	if hour >= 24:
+		day+=1
+		hour=hour-24
+	
