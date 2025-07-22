@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtmbkqy8dg23d" path="res://Objects/ui_update.gd" id="1_05maj"]
 [ext_resource type="Theme" uid="uid://cirrv05komjp3" path="res://Objects/Themes/ButtonText.tres" id="1_gyy25"]
 [ext_resource type="PackedScene" uid="uid://3moepcq27gcb" path="res://Objects/stat_bar.tscn" id="1_hyowb"]
-[ext_resource type="PackedScene" path="res://Objects/background.tscn" id="1_s3etm"]
+[ext_resource type="PackedScene" uid="uid://1faecfw8koq3" path="res://Objects/background.tscn" id="1_s3etm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3etm"]
 bg_color = Color(0.905433, 0.92, 0.046, 1)
@@ -69,6 +69,7 @@ height = 75
 [node name="TravelMode" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_s3etm")]
+z_index = -4
 position = Vector2(-194, -117)
 scale = Vector2(1.2, 1.2)
 

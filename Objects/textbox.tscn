@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://idib3kfv2002"]
+
+[ext_resource type="Texture2D" uid="uid://b111vyqfhvxmi" path="res://Sprites/textbox.png" id="1_7tnc2"]
+[ext_resource type="Script" uid="uid://bv2tgqwdtsb12" path="res://textbox.gd" id="2_1wf8y"]
+[ext_resource type="FontFile" uid="uid://drd2x6n6tumik" path="res://Objects/Themes/Quicksand-Regular.ttf" id="3_1wf8y"]
+
+[node name="Textbox" type="Control" node_paths=PackedStringArray("sprite", "rich_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1wf8y")
+sprite = NodePath("Sprite")
+rich_text = NodePath("RichTextLabel")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.583557, 0.306109, 0.0403488, 1)
+texture = ExtResource("1_7tnc2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -525.0
+offset_top = -105.0
+offset_right = 524.0
+offset_bottom = 101.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_1wf8y")
+theme_override_fonts/mono_font = ExtResource("3_1wf8y")
+theme_override_fonts/italics_font = ExtResource("3_1wf8y")
+theme_override_fonts/bold_italics_font = ExtResource("3_1wf8y")
+theme_override_fonts/bold_font = ExtResource("3_1wf8y")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+scroll_active = false

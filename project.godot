@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Player="*res://Objects/player.tscn"
 World="*res://Objects/world.tscn"
+TextBox="*res://show_text.gd"
 
 [display]
 
