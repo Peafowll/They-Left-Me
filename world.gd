@@ -9,16 +9,17 @@ const SEARCH_SHELTER_BIAS = 5
 
 @export var Locations : Array[Location] = []
 @export var current_location : Location
-@export var location_index : int = 0
+@export var location_index : int = 1
 @export var current_distance : int
 
 func _ready() -> void:
 	Locations.append(load( "res://Resources/Locations/city.tres"))
 	Locations.append(load("res://Resources/Locations/forest.tres" ))
+	Locations.append(load("res://Resources/Locations/farm.tres" ))
 	#print(Locations[0].loot_table.pool[0].name)
 	current_location = Locations[location_index]
 	print("Current location : " + current_location.name)
-	print("Necessary background : " + current_location.background_image)
+
 	
 	#below is testing for chances based on weight
 	#var results : Dictionary = {
