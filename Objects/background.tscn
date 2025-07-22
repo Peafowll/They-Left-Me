@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1faecfw8koq3"]
+
+[ext_resource type="Script" uid="uid://iwqtggjsgf46" path="res://background.gd" id="1_j0vpx"]
+[ext_resource type="Texture2D" uid="uid://dwqlajnf5wnlj" path="res://Sprites/Backgrounds/forest.png" id="1_xo5rv"]
+
+[node name="Background" type="Sprite2D"]
+texture = ExtResource("1_xo5rv")
+centered = false
+script = ExtResource("1_j0vpx")
