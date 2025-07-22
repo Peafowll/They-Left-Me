@@ -79,6 +79,7 @@ height = 75
 [node name="TravelMode" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_s3etm")]
+z_index = -4
 position = Vector2(-194, -117)
 scale = Vector2(1.2, 1.2)
 
