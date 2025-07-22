@@ -50,6 +50,7 @@ func _roll_for_nothing():
 	var chance_for_nothing = current_location.no_loot_chance
 	var random = randi() % 100 + 1
 	if(random<=chance_for_nothing):
+		print("You found nothing.")
 		return true
 
 func _roll_for_shelter(search_type):
@@ -58,7 +59,7 @@ func _roll_for_shelter(search_type):
 		chance_for_shelter *= SEARCH_SHELTER_BIAS
 	var random = randi() % 100 +1
 	if(random<=chance_for_shelter):
-		#print("You found shelter.")
+		print("You found shelter.")
 		return true
 	return false
 
