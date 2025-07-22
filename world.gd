@@ -13,8 +13,18 @@ const SEARCH_SHELTER_BIAS = 5
 @export var current_distance : int
 
 func _ready() -> void:
-	Locations.append(load( "res://Resources/Locations/city.tres"))
-	Locations.append(load("res://Resources/Locations/forest.tres" ))
+	var folder_path = "res://Resources/Locations/"
+	var dir = DirAccess.open(folder_path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				Locations.append(load(folder_path + file_name))
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	if Locations.size() > 0:
+		Locations.shuffle()
 	#print(Locations[0].loot_table.pool[0].name)
 	current_location = Locations[location_index]
 	print("Current location : " + current_location.name)
