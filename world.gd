@@ -3,7 +3,7 @@ extends Node2D
 
 @export var day : int = 0
 @export var hour : float = 0
-
+@export var nothing_found_modifier = 1
 const SEARCH_WEIGHT_BIAS = 3
 const SEARCH_SHELTER_BIAS = 5
 
@@ -55,8 +55,8 @@ func _search(search_type: String):
 func _roll_for_nothing():
 	var chance_for_nothing = current_location.no_loot_chance
 	var random = randi() % 100 + 1
-	if(random<=chance_for_nothing):
-		print("You found nothing.")
+	if(random<=chance_for_nothing*nothing_found_modifier):
+		TextBox.textbox.display_text("You found nothing.")
 		return true
 
 func _roll_for_shelter(search_type):
@@ -65,7 +65,10 @@ func _roll_for_shelter(search_type):
 		chance_for_shelter *= SEARCH_SHELTER_BIAS
 	var random = randi() % 100 +1
 	if(random<=chance_for_shelter):
-		print("You found shelter.")
+		nothing_found_modifier+=1
+		var text_to_display : String = "You found shelter."
+		text_to_display = _resource_amount_left_display(text_to_display)	
+		TextBox.textbox.display_text(text_to_display)
 		return true
 	return false
 
@@ -98,8 +101,12 @@ func _roll_for_items(search_type):
 			found_item = item
 			break;
 	
-	print("Found " + found_item.name+ ".")
-	print(found_item.description)
+	nothing_found_modifier+=1
+	var text_to_display : String = "You found [color=Moccasin]" +found_item.name+ "[/color]. \n"
+	text_to_display += found_item.description
+	text_to_display=_resource_amount_left_display(text_to_display)
+	TextBox.textbox.display_text(text_to_display)
+	print(current_location.no_loot_chance*nothing_found_modifier)
 	return found_item
 	
 func _pass_time(time : float):
@@ -107,4 +114,9 @@ func _pass_time(time : float):
 	if hour >= 24:
 		day+=1
 		hour=hour-24
-	
+		
+func _resource_amount_left_display(text : String) -> String:
+	if current_location.no_loot_chance*nothing_found_modifier>=100:
+		return text + "\nThis area seems to have [color=red]nothing[/color] left to search for."
+	else:
+		return text + "\nThis area's resources have [color=Lightcoral]depleted[/color]."

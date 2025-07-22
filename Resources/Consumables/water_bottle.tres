@@ -9,8 +9,8 @@ food_fill = 0.0
 thirst_fill = 25.0
 sanity_fill = 0.0
 energy_fill = 0.0
-description = "A full portable water bottle.
-[color=#FFB600] Noticeably[/color] [color=#415cf3] refreshing[/color]."
+description = "\"A portable water bottle. It's full.\"
+[color=#FFB600]Noticeably[/color] [color=#415cf3]refreshing[/color]."
 type = "drink"
 rarity = 8.0
 metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

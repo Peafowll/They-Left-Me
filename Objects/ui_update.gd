@@ -24,7 +24,7 @@ func _on_search_button_pressed(tag : String):
 
 func _on_travel_button_pressed() -> void:
 	canvas_layer.visible = true
-	print("travel")
+	World.nothing_found_modifier=1
 	# Play footstep sound
 	World.current_distance+=10
 	if World.current_distance > World.current_location.size:
@@ -41,6 +41,7 @@ func _on_travel_button_pressed() -> void:
 
 func _on_quick_travel_button_pressed() -> void:
 	canvas_layer.visible = true
+	World.nothing_found_modifier=1
 	# Play footstep sound
 	World.current_distance+=10
 	if World.current_distance > World.current_location.size:
