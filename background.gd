@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
-	var offset = (mouse_pos - screen_center) * parallax_strength
+	var _offset = (mouse_pos - screen_center) * parallax_strength
 	
-	var target_position = original_position - offset
+	var target_position = original_position - _offset
 	position = position.lerp(target_position, smoothing * delta)

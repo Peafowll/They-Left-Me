@@ -11,6 +11,8 @@ func _ready() -> void:
 	Locations.append(load( "res://Resources/Locations/city.tres"))
 	#print(Locations[0].loot_table.pool[0].name)
 	current_location = Locations[0]
+	print("Current location : " + current_location.name)
+	print("Necessary background : " + current_location.background_image)
 	var found = _search("food")
 	print(found)
 	
