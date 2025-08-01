@@ -6,6 +6,8 @@ extends Control
 
 @onready var canvas_layer = $TravelingTransition
 
+
+
 func _process(_delta: float) -> void:
 	energy_bar.value = Player.energy
 	hunger_bar.value = Player.hunger

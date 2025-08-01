@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://lhdp4xqlabt8"]
+
+[ext_resource type="Script" uid="uid://dcwv35s7k4av" path="res://Objects/inventory.gd" id="1_uwsja"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwsja")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1922.0
+offset_bottom = 1075.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 331.0
+offset_right = 1316.0
+offset_bottom = 672.0
+
+[node name="Item" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Item"]
+layout_mode = 2
+text = " "
+
+[node name="Close Inventory button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1565.0
+offset_top = 616.0
+offset_right = 1897.0
+offset_bottom = 949.0
+
+[connection signal="pressed" from="Close Inventory button" to="." method="toggle_inventory"]
