@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootTable" load_steps=4 format=3 uid="uid://d2iqmpqnhq6nb"]
 
-[ext_resource type="Script" path="res://Objects/consumable.gd" id="1_oqt48"]
-[ext_resource type="Script" path="res://Objects/loot_table.gd" id="2_b3j40"]
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_oqt48"]
+[ext_resource type="Script" uid="uid://bd86tr0dm08je" path="res://Objects/loot_table.gd" id="2_b3j40"]
 [ext_resource type="Resource" uid="uid://b6uuqy6ksicrg" path="res://Resources/Consumables/bag_of_chips.tres" id="2_th3a0"]
 
 [resource]

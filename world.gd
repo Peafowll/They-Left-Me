@@ -29,24 +29,6 @@ func _ready() -> void:
 	current_location = Locations[location_index]
 	print("Current location : " + current_location.name)
 
-	
-	#below is testing for chances based on weight
-	#var results : Dictionary = {
-		#"nothing" : 0,
-		#"packaged sandwich" : 0,
-		#"water bottle" : 0,
-		#"can of soda" : 0,
-		#"bag of chips":0
-	#}
-	#var try = 0
-	#while(try<100):
-		#var result = _search("food")
-		#if(result==null):
-			#results["nothing"]=results["nothing"]+1
-		#else:
-			#results[result.name]=results[result.name]+1
-		#try=try+1
-		#print(results)
 
 
 
@@ -59,8 +41,7 @@ func _search(search_type: String):
 		return "shelter"
 	
 	return _roll_for_items(search_type)
-
-
+	
 
 func _roll_for_nothing():
 	var chance_for_nothing = current_location.no_loot_chance

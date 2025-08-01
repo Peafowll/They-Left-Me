@@ -101,14 +101,6 @@ scale = Vector2(1.84, 1.92)
 texture_normal = SubResource("GradientTexture2D_s3etm")
 texture_hover = SubResource("GradientTexture2D_tbuwt")
 
-[node name="Inventory" parent="UIUpdate" instance=ExtResource("5_2mib4")]
-visible = false
-layout_mode = 1
-offset_left = -4.0
-offset_top = 6.0
-offset_right = -44.0
-offset_bottom = -34.0
-
 [node name="EnergyBar" parent="UIUpdate" instance=ExtResource("1_hyowb")]
 layout_mode = 0
 offset_left = 37.0
@@ -180,6 +172,16 @@ text = "Water
 scroll_active = false
 autowrap_mode = 0
 
+[node name="UIUpdate_InventoryButton#RichTextLabel" type="RichTextLabel" parent="UIUpdate"]
+layout_mode = 0
+offset_left = -0.543478
+offset_top = 24.4792
+offset_right = 75.4565
+offset_bottom = 47.4792
+mouse_filter = 2
+text = "Inventory"
+scroll_active = false
+
 [node name="SearchFoodButton" type="TextureButton" parent="UIUpdate"]
 layout_mode = 0
 offset_left = 1729.0
@@ -228,6 +230,35 @@ text = "Travel"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="QuickTravelButton" type="TextureButton" parent="UIUpdate"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 44.05
+anchor_top = 19.6
+anchor_right = 45.95
+anchor_bottom = 21.475
+offset_right = -0.00012207
+texture_normal = SubResource("GradientTexture2D_2mib4")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/QuickTravelButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 22.0
+offset_right = 79.0
+offset_bottom = 49.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "QTravel"
+scroll_active = false
+
+[node name="Inventory" parent="UIUpdate" instance=ExtResource("5_2mib4")]
+visible = false
+layout_mode = 1
+offset_top = -5.0
+offset_right = -40.0
+offset_bottom = -45.0
+
 [node name="TravelingTransition" type="CanvasLayer" parent="UIUpdate"]
 visible = false
 
@@ -253,37 +284,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 50
 text = "Traveling..."
-scroll_active = false
-
-[node name="QuickTravelButton" type="TextureButton" parent="UIUpdate"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 44.05
-anchor_top = 19.6
-anchor_right = 45.95
-anchor_bottom = 21.475
-offset_right = -0.00012207
-texture_normal = SubResource("GradientTexture2D_2mib4")
-metadata/_edit_use_anchors_ = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/QuickTravelButton"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 22.0
-offset_right = 79.0
-offset_bottom = 49.0
-mouse_filter = 2
-bbcode_enabled = true
-text = "QTravel"
-scroll_active = false
-
-[node name="UIUpdate_InventoryButton#RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -0.543478
-offset_top = 24.4792
-offset_right = 75.4565
-offset_bottom = 47.4792
-mouse_filter = 2
-text = "Inventory"
 scroll_active = false
 
 [connection signal="pressed" from="UIUpdate/InventoryButton" to="UIUpdate/Inventory" method="toggle_inventory"]

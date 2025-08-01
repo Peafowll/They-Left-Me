@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://lhdp4xqlabt8"]
+[gd_scene load_steps=5 format=3 uid="uid://lhdp4xqlabt8"]
 
 [ext_resource type="Script" uid="uid://dcwv35s7k4av" path="res://Objects/inventory.gd" id="1_uwsja"]
+[ext_resource type="Texture2D" uid="uid://cegclh44m5ssm" path="res://icon.svg" id="2_33ull"]
+[ext_resource type="FontFile" uid="uid://drd2x6n6tumik" path="res://Objects/Themes/Quicksand-Regular.ttf" id="2_ogkbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwsja"]
+bg_color = Color(0.18, 0.1536, 0.081, 1)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -13,28 +18,71 @@ script = ExtResource("1_uwsja")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1922.0
-offset_bottom = 1075.0
+offset_right = 1924.0
+offset_bottom = 1086.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwsja")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 629.0
-offset_top = 331.0
-offset_right = 1316.0
-offset_bottom = 672.0
+offset_left = 278.0
+offset_top = 51.0
+offset_right = 417.0
+offset_bottom = 1007.0
 
-[node name="Item" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="ItemRow" type="VBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(25, 200)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Item"]
+[node name="ItemUI" type="Control" parent="Panel/VBoxContainer/ItemRow"]
 layout_mode = 2
-text = " "
+
+[node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 1)
+layout_direction = 2
+offset_left = -11.0
+offset_top = 117.0
+offset_right = 112.0
+offset_bottom = 183.0
+theme_override_fonts/normal_font = ExtResource("2_ogkbk")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]item here[/center]"
+scroll_active = false
+tab_size = 2
+
+[node name="CountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+z_index = 1
+offset_left = 83.0
+offset_top = 87.0
+offset_right = 138.0
+offset_bottom = 128.0
+theme_override_fonts/normal_font = ExtResource("2_ogkbk")
+theme_override_font_sizes/normal_font_size = 25
+text = "x1"
+
+[node name="Description" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+offset_left = 120.0
+offset_top = -7.0
+offset_right = 1100.0
+offset_bottom = 126.0
+theme_override_fonts/normal_font = ExtResource("2_ogkbk")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Tho
+sd
+fd
+gfd"
+
+[node name="Icon" type="Sprite2D" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+position = Vector2(49, 57)
+texture = ExtResource("2_33ull")
 
 [node name="Close Inventory button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1565.0
-offset_top = 616.0
-offset_right = 1897.0
-offset_bottom = 949.0
+offset_left = 1563.0
+offset_top = 29.0
+offset_right = 1895.0
+offset_bottom = 362.0
 
 [connection signal="pressed" from="Close Inventory button" to="." method="toggle_inventory"]
