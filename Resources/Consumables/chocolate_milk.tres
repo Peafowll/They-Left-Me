@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://dtwlxcojpqow3"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_c6bn4"]
+
+[resource]
+script = ExtResource("1_c6bn4")
+name = "chocolate milk"
+food_fill = 0.0
+thirst_fill = 10.0
+sanity_fill = 25.0
+energy_fill = 0.0
+description = "\"Tastes delicious.\"
+[color=#FF7F2A]Slightly[/color] quenches [color=#415cf3]thirst[/color].
+[color=#FFD700]Noticeably[/color] increases [color=purple]sanity[/color]. "
+type = "drink"
+rarity = 3.0
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

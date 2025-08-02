@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://cxmk5550swspr"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_1q6yq"]
+
+[resource]
+script = ExtResource("1_1q6yq")
+name = "instant noodles"
+food_fill = 80.0
+thirst_fill = 0.0
+sanity_fill = 0.0
+energy_fill = 0.0
+description = "\"For  serious situations.\"
+[color=#2EBF4F]Immensely[/color] reduces [color=#c96d0e]hunger[/color]. "
+type = "food"
+rarity = 0.5
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

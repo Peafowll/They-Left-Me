@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://cvvoos53n37gg"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_j8oqk"]
+
+[resource]
+script = ExtResource("1_j8oqk")
+name = "protein bar"
+food_fill = 10.0
+thirst_fill = 0.0
+sanity_fill = 0.0
+energy_fill = 5.0
+description = "\"A protein bar commonly found at the checkout of sports stores.\"
+[color=#FF7F2A]Slightly[/color] reduces [color=#c96d0e]hunger[/color].
+[color=#FF2D2D]Faintly[/color] increases [color=yellow]energy[/color]."
+type = "food"
+rarity = 7.5
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"

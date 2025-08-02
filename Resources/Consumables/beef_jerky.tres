@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://c4xxamvp4ov1j"]
+
+[ext_resource type="Script" uid="uid://cguy6cyd1k3n2" path="res://Objects/consumable.gd" id="1_8ckqc"]
+
+[resource]
+script = ExtResource("1_8ckqc")
+name = "beef jerky"
+food_fill = 55.0
+thirst_fill = -20.0
+sanity_fill = 0.0
+energy_fill = 0.0
+description = "\"Oversalted.\"
+[color=#A8E61D]Greatly[/color] reduces [color=#c96d0e]hunger[/color]. 
+[color=#FFB600]Noticeably[/color] increases [color=415cf3]thirst[/color]."
+type = ""
+rarity = 10.0
+metadata/_custom_type_script = "uid://cguy6cyd1k3n2"
