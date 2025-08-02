@@ -4,6 +4,17 @@ extends Control
 @onready var item_row_default = $Panel/VBoxContainer/ItemRow
 
 
+
+@onready var energy_bar: ProgressBar = $EnergyBar
+@onready var thirst_bar: ProgressBar = $ThirstBar
+@onready var hunger_bar: ProgressBar = $HungerBar
+
+
+func _process(_delta: float) -> void:
+	energy_bar.value = Player.energy
+	hunger_bar.value = Player.hunger
+	thirst_bar.value = Player.thirst
+
 func _ready():
 	item_row_default.hide()
 	
@@ -48,6 +59,10 @@ func refresh_inventory():
 		consume_button.set_meta("SourceItemName",item)
 		item_row.show()
 		vbox.add_child(item_row)
+
+	# FOR THE LOVE OF ALL THAT IS HOLY , JUST ADD A CONSUMABLE OBJECT TO THIS SHIT
+
+
 
 func toggle_inventory():
 	visible = not visible

@@ -1,14 +1,15 @@
 extends Node2D
 # Player Stats
-@export_range(0,100) var hunger : float = 100
+@export_range(0,100) var hunger : float = 50
 @export_range(0,100) var thirst : float = 100
 @export_range(0,100) var energy : float = 100
 @export_range(0,100) var sanity : float = 100
 
 var rng = RandomNumberGenerator.new()
-var inventory : Dictionary = {}
+@export var inventory : Dictionary = {}
 func _process(_delta: float) -> void:
-	hunger-=0.01
+	pass
+	#hunger
 	#TextBox.textbox.display_text(str(rng.randf_range(0,999999999999999)))
 
 func remove_item(name : String):
@@ -18,3 +19,11 @@ func remove_item(name : String):
 				inventory.erase(item)
 			else:
 				inventory[item]-=1
+				
+func consume_item(name : String):
+	remove_item(name)
+	var item_object = ItemDatabase.get_item(name)
+	energy += item_object.energy_fill
+	thirst += item_object.thirst_fill
+	hunger += item_object.food_fill
+	sanity += item_object.sanity_fill
