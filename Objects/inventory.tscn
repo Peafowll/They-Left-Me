@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://lhdp4xqlabt8"]
+[gd_scene load_steps=6 format=3 uid="uid://lhdp4xqlabt8"]
 
 [ext_resource type="Script" uid="uid://dcwv35s7k4av" path="res://Objects/inventory.gd" id="1_uwsja"]
+[ext_resource type="Script" uid="uid://brif5eptj7lho" path="res://Objects/item_ui.gd" id="2_30xvo"]
 [ext_resource type="Texture2D" uid="uid://cegclh44m5ssm" path="res://icon.svg" id="2_33ull"]
 [ext_resource type="FontFile" uid="uid://drd2x6n6tumik" path="res://Objects/Themes/Quicksand-Regular.ttf" id="2_ogkbk"]
 
@@ -35,11 +36,19 @@ layout_mode = 2
 
 [node name="ItemUI" type="Control" parent="Panel/VBoxContainer/ItemRow"]
 layout_mode = 2
+script = ExtResource("2_30xvo")
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+position = Vector2(1.46336, 18.6903)
+scale = Vector2(0.974446, 0.817259)
+color = Color(1, 0.26, 0.26, 1)
+polygon = PackedVector2Array(-21, 157, 1153, 154, 1153, 66.1083, 1153, -40, 558.816, -37.6548, -20, -40)
 
 [node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 1)
 layout_direction = 2
+layout_mode = 0
 offset_left = -11.0
 offset_top = 117.0
 offset_right = 112.0
@@ -53,6 +62,7 @@ tab_size = 2
 
 [node name="CountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 z_index = 1
+layout_mode = 0
 offset_left = 83.0
 offset_top = 87.0
 offset_right = 138.0
@@ -62,6 +72,7 @@ theme_override_font_sizes/normal_font_size = 25
 text = "x1"
 
 [node name="Description" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = -7.0
 offset_right = 1100.0
@@ -78,6 +89,23 @@ gfd"
 position = Vector2(49, 57)
 texture = ExtResource("2_33ull")
 
+[node name="ConsumeButton" type="Button" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+layout_mode = 0
+offset_left = 998.0
+offset_top = -13.0
+offset_right = 1102.0
+offset_bottom = 66.0
+text = "CONSUME"
+metadata/ItemName = "placehold"
+
+[node name="DiscardButton" type="Button" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 73.0
+offset_right = 1109.0
+offset_bottom = 133.0
+text = "OUTTA HERE"
+
 [node name="Close Inventory button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1563.0
@@ -85,4 +113,5 @@ offset_top = 29.0
 offset_right = 1895.0
 offset_bottom = 362.0
 
+[connection signal="pressed" from="Panel/VBoxContainer/ItemRow/ItemUI/ConsumeButton" to="Panel/VBoxContainer/ItemRow/ItemUI" method="_on_consume_button_pressed"]
 [connection signal="pressed" from="Close Inventory button" to="." method="toggle_inventory"]

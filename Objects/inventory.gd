@@ -42,6 +42,10 @@ func refresh_inventory():
 		var item_desc_label_placer : String = ""
 		item_desc_label_placer += ItemDatabase.get_item(item).description
 		item_desc_label.text = item_desc_label_placer
+		
+		#Changing the name of the item
+		var consume_button = item_instance.get_node("ConsumeButton")
+		consume_button.set_meta("SourceItemName",item)
 		item_row.show()
 		vbox.add_child(item_row)
 

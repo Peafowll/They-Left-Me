@@ -10,3 +10,11 @@ var inventory : Dictionary = {}
 func _process(_delta: float) -> void:
 	hunger-=0.01
 	#TextBox.textbox.display_text(str(rng.randf_range(0,999999999999999)))
+
+func remove_item(name : String):
+	for item in inventory.keys():
+		if item == name:
+			if inventory[item] == 1:
+				inventory.erase(item)
+			else:
+				inventory[item]-=1
