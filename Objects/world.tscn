@@ -4,3 +4,4 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_5kge3")
+hour = 12.0

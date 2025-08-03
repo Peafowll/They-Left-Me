@@ -1,9 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bq728sl3rjanw"]
+[gd_scene load_steps=22 format=3 uid="uid://bq728sl3rjanw"]
 
 [ext_resource type="Script" uid="uid://dtmbkqy8dg23d" path="res://Objects/ui_update.gd" id="1_05maj"]
 [ext_resource type="Theme" uid="uid://cirrv05komjp3" path="res://Objects/Themes/ButtonText.tres" id="1_gyy25"]
 [ext_resource type="PackedScene" uid="uid://3moepcq27gcb" path="res://Objects/stat_bar.tscn" id="1_hyowb"]
 [ext_resource type="PackedScene" uid="uid://1faecfw8koq3" path="res://Objects/background.tscn" id="1_s3etm"]
+[ext_resource type="Script" uid="uid://dgjxk1bnsabxf" path="res://Objects/time_shader.gd" id="2_tbuwt"]
+[ext_resource type="Script" uid="uid://dfiwv8ylg1e26" path="res://Objects/day_dev.gd" id="4_ll3f6"]
+[ext_resource type="Script" uid="uid://dwmrmn6ofqc08" path="res://Objects/hour_dev.gd" id="5_1ghfr"]
 [ext_resource type="PackedScene" uid="uid://lhdp4xqlabt8" path="res://Objects/inventory.tscn" id="5_2mib4"]
 
 [sub_resource type="Gradient" id="Gradient_05maj"]
@@ -84,12 +87,40 @@ z_index = -4
 position = Vector2(-194, -117)
 scale = Vector2(1.2, 1.2)
 
+[node name="TimeShader" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-10, -1, 1953, -12, 1968, 1114, -24, 1114)
+script = ExtResource("2_tbuwt")
+
 [node name="UIUpdate" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_05maj")
+
+[node name="DayDev" type="Label" parent="UIUpdate"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 209.0
+offset_right = 401.0
+offset_bottom = 475.0
+text = "DAY 0"
+script = ExtResource("4_ll3f6")
+
+[node name="HourDev" type="Label" parent="UIUpdate/DayDev"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.266
+anchor_right = 0.056
+anchor_bottom = 0.266
+offset_left = 66.008
+offset_top = -69.756
+offset_right = 324.008
+offset_bottom = 66.244
+text = "hour 1"
+script = ExtResource("5_1ghfr")
 
 [node name="InventoryButton" type="TextureButton" parent="UIUpdate"]
 layout_mode = 0

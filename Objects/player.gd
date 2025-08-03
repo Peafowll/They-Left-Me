@@ -27,3 +27,9 @@ func consume_item(name : String):
 	thirst += item_object.thirst_fill
 	hunger += item_object.food_fill
 	sanity += item_object.sanity_fill
+	
+func drain_resources(m_hunger : int, m_thirst : int, m_energy : int, m_sanity : int):
+	energy-=m_energy
+	hunger-=m_hunger
+	thirst-=m_thirst
+	sanity-=m_sanity
