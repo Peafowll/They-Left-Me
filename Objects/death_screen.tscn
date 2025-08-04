@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dh02ivbolli7i"]
+
+[node name="DeathScreen" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.130772, 0.130772, 0.130772, 1)
+polygon = PackedVector2Array(-3, 0, 1926, 0, 1924, 1087, -1, 1085)
+
+[node name="DeathMessage" type="Label" parent="Polygon2D"]
+offset_left = 735.0
+offset_top = 327.0
+offset_right = 1050.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 100
+text = "u lost"
+
+[node name="CustomDeathMessage" type="Label" parent="Polygon2D"]
+offset_left = 526.0
+offset_top = 494.0
+offset_right = 1362.0
+offset_bottom = 950.0
+theme_override_font_sizes/font_size = 30
+text = "custom"

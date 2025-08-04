@@ -22,6 +22,7 @@ func _ready() -> void:
 	
 func _on_search_button_pressed(tag : String):
 	print("Cauti " + str(tag))
+	World._pass_time(1)
 	World._search(tag)
 
 func _on_travel_button_pressed() -> void:

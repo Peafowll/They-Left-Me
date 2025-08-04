@@ -111,6 +111,13 @@ func _pass_time(time : float):
 	if hour >= 24:
 		day+=1
 		hour=hour-24
+	#randomly removing resources in a range PER HOUR passed
+	var random_food = roundf(randf_range(0,1)*time) 
+	var random_thirst = roundf(randf_range(0.5,1.5)*time)
+	var random_sanity = roundf(randf_range(0,0.5)*time)
+	var random_energy = roundf(randf_range(0,1)*time)
+	Player.drain_resources(random_food,random_thirst,random_energy,random_sanity)
+	Player.check_alive()
 		
 func _resource_amount_left_display(text : String) -> String:
 	if current_location.no_loot_chance*nothing_found_modifier>=100:
