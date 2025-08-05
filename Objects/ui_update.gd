@@ -7,6 +7,10 @@ extends Control
 @onready var canvas_layer = $TravelingTransition
 
 
+# BUTTON
+@export var travel_button : TextureButton
+
+
 
 func _process(_delta: float) -> void:
 	energy_bar.value = Player.energy
@@ -18,6 +22,8 @@ func _ready() -> void:
 	$SearchFoodButton.pressed.connect(func(): _on_search_button_pressed("food"))
 	$SearchWaterButton.pressed.connect(func(): _on_search_button_pressed("water"))
 	$SearchShelterButton.pressed.connect(func(): _on_search_button_pressed("shelter"))
+	
+
 
 	
 func _on_search_button_pressed(tag : String):

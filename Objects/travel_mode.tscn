@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bq728sl3rjanw"]
+[gd_scene load_steps=27 format=3 uid="uid://bq728sl3rjanw"]
 
 [ext_resource type="Script" uid="uid://dtmbkqy8dg23d" path="res://Objects/ui_update.gd" id="1_05maj"]
 [ext_resource type="Theme" uid="uid://cirrv05komjp3" path="res://Objects/Themes/ButtonText.tres" id="1_gyy25"]
@@ -8,6 +8,13 @@
 [ext_resource type="Script" uid="uid://dfiwv8ylg1e26" path="res://Objects/day_dev.gd" id="4_ll3f6"]
 [ext_resource type="Script" uid="uid://dwmrmn6ofqc08" path="res://Objects/hour_dev.gd" id="5_1ghfr"]
 [ext_resource type="PackedScene" uid="uid://lhdp4xqlabt8" path="res://Objects/inventory.tscn" id="5_2mib4"]
+[ext_resource type="Texture2D" uid="uid://cl5ply6usd8qv" path="res://Sprites/walk4.png" id="8_ncgkk"]
+[ext_resource type="Texture2D" uid="uid://b7q062yv3xnj8" path="res://Sprites/walk2.png" id="9_gtywx"]
+[ext_resource type="Texture2D" uid="uid://de16bt7j2dqpe" path="res://Sprites/walk3.png" id="9_hdacw"]
+[ext_resource type="FontFile" uid="uid://e534v0lhcoix" path="res://Objects/Themes/Onest-VariableFont_wght.ttf" id="11_ncgkk"]
+[ext_resource type="Texture2D" uid="uid://cxap3gj0abf6y" path="res://Sprites/run.png" id="12_u5h8l"]
+[ext_resource type="Texture2D" uid="uid://da58p32m6r2v7" path="res://Sprites/run3.png" id="13_6oavs"]
+[ext_resource type="Texture2D" uid="uid://bietp5ylh4eky" path="res://Sprites/run2.png" id="14_ybxjm"]
 
 [sub_resource type="Gradient" id="Gradient_05maj"]
 offsets = PackedFloat32Array(0.21393, 0.61194, 1)
@@ -70,16 +77,6 @@ width = 75
 height = 75
 fill_to = Vector2(1, 1)
 
-[sub_resource type="Gradient" id="Gradient_s3etm"]
-colors = PackedColorArray(0.92549, 0, 0, 1, 1, 0.160784, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mib4"]
-gradient = SubResource("Gradient_s3etm")
-width = 75
-height = 75
-fill_from = Vector2(0.418803, 0.299145)
-fill_to = Vector2(0.764957, 0.611111)
-
 [node name="TravelMode" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_s3etm")]
@@ -88,16 +85,18 @@ position = Vector2(-194, -117)
 scale = Vector2(1.2, 1.2)
 
 [node name="TimeShader" type="Polygon2D" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-10, -1, 1953, -12, 1968, 1114, -24, 1114)
 script = ExtResource("2_tbuwt")
 
-[node name="UIUpdate" type="Control" parent="."]
+[node name="UIUpdate" type="Control" parent="." node_paths=PackedStringArray("travel_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_05maj")
+travel_button = NodePath("TravelButton")
 
 [node name="DayDev" type="Label" parent="UIUpdate"]
 layout_mode = 0
@@ -134,26 +133,29 @@ texture_hover = SubResource("GradientTexture2D_tbuwt")
 
 [node name="EnergyBar" parent="UIUpdate" instance=ExtResource("1_hyowb")]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 928.0
-offset_right = 459.0
-offset_bottom = 972.0
+offset_left = 171.0
+offset_top = 1020.0
+offset_right = 593.0
+offset_bottom = 1064.0
+rotation = -1.5708
 theme_override_styles/fill = SubResource("StyleBoxFlat_s3etm")
 
 [node name="ThirstBar" parent="UIUpdate" instance=ExtResource("1_hyowb")]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 860.0
-offset_right = 459.0
-offset_bottom = 904.0
+offset_left = 119.0
+offset_top = 1020.0
+offset_right = 541.0
+offset_bottom = 1064.0
+rotation = -1.5708
 theme_override_styles/fill = SubResource("StyleBoxFlat_05maj")
 
 [node name="HungerBar" parent="UIUpdate" instance=ExtResource("1_hyowb")]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 794.0
-offset_right = 458.0
-offset_bottom = 838.0
+offset_left = 68.0
+offset_top = 1020.0
+offset_right = 490.0
+offset_bottom = 1064.0
+rotation = -1.5708
 theme_override_styles/fill = SubResource("StyleBoxFlat_hyowb")
 
 [node name="SearchShelterButton" type="TextureButton" parent="UIUpdate"]
@@ -239,49 +241,60 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="TravelButton" type="TextureButton" parent="UIUpdate"]
+modulate = Color(0.709097, 0.401933, 0.238619, 1)
 layout_mode = 0
-offset_left = 1714.0
-offset_top = 892.0
-offset_right = 1789.0
-offset_bottom = 967.0
-scale = Vector2(2.1954, 1.96208)
-texture_normal = SubResource("GradientTexture2D_05maj")
-texture_hover = SubResource("GradientTexture2D_hyowb")
+offset_left = 1693.0
+offset_top = 843.0
+offset_right = 1862.0
+offset_bottom = 1015.0
+texture_normal = ExtResource("8_ncgkk")
+texture_pressed = ExtResource("9_hdacw")
+texture_hover = ExtResource("9_gtywx")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/TravelButton"]
+[node name="TravelText" type="RichTextLabel" parent="UIUpdate/TravelButton"]
 layout_mode = 0
 offset_left = -2.0
-offset_top = 17.0
-offset_right = 41.0
-offset_bottom = 40.0
-scale = Vector2(1.82284, 1.51439)
+offset_top = 173.0
+offset_right = 174.0
+offset_bottom = 305.0
 mouse_filter = 2
-theme = ExtResource("1_gyy25")
-text = "Travel"
-scroll_active = false
-autowrap_mode = 0
+theme_override_fonts/normal_font = ExtResource("11_ncgkk")
+theme_override_font_sizes/normal_font_size = 24
+text = "[ TRAVEL]
+place this text
+wherever you want"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuickTravelButton" type="TextureButton" parent="UIUpdate"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 44.05
-anchor_top = 19.6
-anchor_right = 45.95
-anchor_bottom = 21.475
-offset_right = -0.00012207
-texture_normal = SubResource("GradientTexture2D_2mib4")
-metadata/_edit_use_anchors_ = true
+offset_left = 1738.0
+offset_top = 730.0
+offset_right = 1808.0
+offset_bottom = 799.0
+texture_normal = ExtResource("12_u5h8l")
+texture_pressed = ExtResource("13_6oavs")
+texture_hover = ExtResource("14_ybxjm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UIUpdate/QuickTravelButton"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 22.0
-offset_right = 79.0
-offset_bottom = 49.0
+[node name="TravelText" type="RichTextLabel" parent="UIUpdate/QuickTravelButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -17.5
+offset_right = 113.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-bbcode_enabled = true
-text = "QTravel"
-scroll_active = false
+theme_override_fonts/normal_font = ExtResource("11_ncgkk")
+theme_override_font_sizes/normal_font_size = 24
+text = "[ QUICK TRAVEL]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Inventory" parent="UIUpdate" instance=ExtResource("5_2mib4")]
 visible = false

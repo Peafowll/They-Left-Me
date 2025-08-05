@@ -9,7 +9,7 @@ func _ready():
 	textbox = textbox_scene.instantiate()
 	add_child(textbox)
 
-	textbox.position = Vector2(1100, 900)
+	textbox.position = Vector2(940, 900)
 
 # WHAT THE ACTUAL FUCK IS WRONG WITH THIS TEXTBOX
 # I HATE EVERYTHING 

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dcwv35s7k4av" path="res://Objects/inventory.gd" id="1_uwsja"]
 [ext_resource type="Script" uid="uid://brif5eptj7lho" path="res://Objects/item_ui.gd" id="2_30xvo"]
 [ext_resource type="Texture2D" uid="uid://cegclh44m5ssm" path="res://icon.svg" id="2_33ull"]
-[ext_resource type="FontFile" uid="uid://drd2x6n6tumik" path="res://Objects/Themes/Quicksand-Regular.ttf" id="2_ogkbk"]
+[ext_resource type="FontFile" uid="uid://e534v0lhcoix" path="res://Objects/Themes/Onest-VariableFont_wght.ttf" id="3_uj6eu"]
 [ext_resource type="PackedScene" uid="uid://3moepcq27gcb" path="res://Objects/stat_bar.tscn" id="5_uj6eu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwsja"]
-bg_color = Color(0.18, 0.1536, 0.081, 1)
+bg_color = Color(0.14902, 0.0823529, 0.027451, 0.768627)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnudj"]
 bg_color = Color(0.905433, 0.92, 0.046, 1)
@@ -44,16 +44,18 @@ script = ExtResource("1_uwsja")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1924.0
-offset_bottom = 1086.0
+offset_left = -51.0
+offset_top = -18.0
+offset_right = 1948.0
+offset_bottom = 1094.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uwsja")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 278.0
-offset_top = 51.0
-offset_right = 417.0
-offset_bottom = 1007.0
+offset_left = 544.0
+offset_top = 64.0
+offset_right = 864.0
+offset_bottom = 1026.0
 
 [node name="ItemRow" type="VBoxContainer" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(25, 200)
@@ -63,82 +65,91 @@ layout_mode = 2
 layout_mode = 2
 script = ExtResource("2_30xvo")
 
-[node name="Polygon2D" type="Polygon2D" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
-position = Vector2(1.46336, 18.6903)
-scale = Vector2(0.974446, 0.817259)
-color = Color(1, 0.26, 0.26, 1)
-polygon = PackedVector2Array(-21, 157, 1153, 154, 1153, 66.1083, 1153, -40, 558.816, -37.6548, -20, -40)
+[node name="ItemSlot" type="Polygon2D" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
+position = Vector2(-1.09456, 18.6903)
+scale = Vector2(0.85264, 0.817259)
+color = Color(0.242175, 0.00914331, 0.162452, 1)
+polygon = PackedVector2Array(-21, 170, 1000, 170, 1200, -40, -21, -39.9999)
 
 [node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 1)
 layout_direction = 2
 layout_mode = 0
-offset_left = -11.0
-offset_top = 117.0
-offset_right = 112.0
-offset_bottom = 183.0
-theme_override_fonts/normal_font = ExtResource("2_ogkbk")
-theme_override_font_sizes/normal_font_size = 25
+offset_left = -13.0
+offset_top = 109.0
+offset_right = 181.0
+offset_bottom = 153.0
+mouse_filter = 2
+theme_override_constants/line_separation = -9
+theme_override_fonts/normal_font = ExtResource("3_uj6eu")
+theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "[center]item here[/center]"
+text = "ITEM NAME
+I HATE THIS"
 scroll_active = false
 tab_size = 2
+horizontal_alignment = 1
 
 [node name="CountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 83.0
-offset_top = 87.0
-offset_right = 138.0
-offset_bottom = 128.0
-theme_override_fonts/normal_font = ExtResource("2_ogkbk")
+offset_left = 29.0
+offset_top = 75.0
+offset_right = 129.0
+offset_bottom = 113.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_uj6eu")
 theme_override_font_sizes/normal_font_size = 25
 text = "x1"
+horizontal_alignment = 2
 
 [node name="Description" type="RichTextLabel" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = -7.0
-offset_right = 1100.0
-offset_bottom = 126.0
-theme_override_fonts/normal_font = ExtResource("2_ogkbk")
+offset_left = 189.0
+offset_top = 3.0
+offset_right = 661.0
+offset_bottom = 136.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_uj6eu")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "Tho
-sd
-fd
-gfd"
+text = "Description
+--------------
+--------------
+Description"
 
 [node name="Icon" type="Sprite2D" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
-position = Vector2(49, 57)
+position = Vector2(84, 55)
+scale = Vector2(0.820313, 0.820313)
 texture = ExtResource("2_33ull")
 
 [node name="ConsumeButton" type="Button" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 layout_mode = 0
-offset_left = 998.0
-offset_top = -13.0
-offset_right = 1102.0
-offset_bottom = 66.0
+offset_left = 673.0
+offset_top = 2.0
+offset_right = 815.0
+offset_bottom = 51.0
 text = "CONSUME"
 metadata/ItemName = "placehold"
 
 [node name="DiscardButton" type="Button" parent="Panel/VBoxContainer/ItemRow/ItemUI"]
 layout_mode = 0
-offset_left = 987.0
-offset_top = 73.0
-offset_right = 1109.0
-offset_bottom = 133.0
-text = "OUTTA HERE"
+offset_left = 673.0
+offset_top = 88.0
+offset_right = 818.0
+offset_bottom = 136.0
+text = "DISCARD"
 
 [node name="Close Inventory button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1563.0
+offset_left = 27.0
 offset_top = 29.0
-offset_right = 1895.0
-offset_bottom = 362.0
+offset_right = 233.0
+offset_bottom = 245.0
 
 [node name="EnergyBar" parent="." instance=ExtResource("5_uj6eu")]
+visible = false
 layout_mode = 0
 offset_left = 37.0
 offset_top = 928.0
@@ -147,6 +158,7 @@ offset_bottom = 972.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_gnudj")
 
 [node name="ThirstBar" parent="." instance=ExtResource("5_uj6eu")]
+visible = false
 layout_mode = 0
 offset_left = 37.0
 offset_top = 860.0
@@ -155,6 +167,7 @@ offset_bottom = 904.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_swd4b")
 
 [node name="HungerBar" parent="." instance=ExtResource("5_uj6eu")]
+visible = false
 layout_mode = 0
 offset_left = 36.0
 offset_top = 794.0
